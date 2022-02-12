@@ -9,6 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.model.domain.Car;
+import racingcar.model.domain.FixMoveBehavior;
 
 public class CarTest {
 
@@ -23,7 +24,7 @@ public class CarTest {
     @ParameterizedTest
     @MethodSource("provideCarArguments")
     void moveCarTest(Car car, int number, boolean expected) {
-        car.moveForward();
+        car.moveForward(new FixMoveBehavior(true));
         assertThat(car.isMax(number)).isEqualTo(expected);
     }
 }

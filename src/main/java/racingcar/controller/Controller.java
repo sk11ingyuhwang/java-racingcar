@@ -26,8 +26,7 @@ public class Controller {
         Cars cars = new Cars(inputDto.getSplitUserInput());
         Racing racing = new Racing(cars, RandomMoveBehavior.getInstance());
         for (int idx = NUMBER_ZERO; idx < inputDto.getRacingTryCounter(); idx++) {
-            racing.drive();
-            List<OutputDTO> result = convertCar(cars);
+            List<OutputDTO> result = racing.drive();
             RacingCarUserResult.printCarStatus(result);
         }
         VictoryCars victory = VictoryCars.makeVictoryCars(cars);

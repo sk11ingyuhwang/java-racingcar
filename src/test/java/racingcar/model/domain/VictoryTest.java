@@ -22,9 +22,9 @@ public class VictoryTest {
         final Cars cars = new Cars(Arrays.asList(car_a, car_b, car_c));
 
         //when
-        cars.cars().get(0).moveForward();
-        cars.cars().get(0).moveForward();
-        cars.cars().get(0).moveForward();
+        cars.cars().get(0).moveForward(new FixMoveBehavior(true));
+        cars.cars().get(0).moveForward(new FixMoveBehavior(true));
+        cars.cars().get(0).moveForward(new FixMoveBehavior(true));
 
         VictoryCars victory = VictoryCars.makeVictoryCars(cars);
         List<OutputDTO> victoryResult = victory.victory()

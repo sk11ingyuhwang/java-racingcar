@@ -23,7 +23,7 @@ public class CarTest {
     @ParameterizedTest
     @ValueSource(ints = 1)
     void moveForwardTest(int moveNumber) {
-        car.moveForward();
+        car.moveForward(new FixMoveBehavior(true));
         assertThat(car.getStep()).isEqualTo(moveNumber);
     }
 
@@ -32,7 +32,7 @@ public class CarTest {
     @ParameterizedTest
     @ValueSource(ints = 1)
     void isMaxTest(int max) {
-        car.moveForward();
+        car.moveForward(new FixMoveBehavior(true));
         assertTrue(car.isMax(max));
     }
 

@@ -29,7 +29,7 @@ public class RacingCarUserResult {
             try {
                 printCarResult(OutputDto);
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         });
     }

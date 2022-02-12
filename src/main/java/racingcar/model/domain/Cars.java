@@ -3,6 +3,7 @@ package racingcar.model.domain;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.controller.dto.OutputDTO;
 
 public class Cars {
 
@@ -23,14 +24,13 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    public void drive(final CarMoveBehavior carMoveBehavior) {
+    public List<OutputDTO> drive(final CarMoveBehavior carMoveBehavior) {
         cars.forEach(car -> moveCar(car, carMoveBehavior));
+        return cars.stream().map(OutputDTO::new).collect(Collectors.toList());
     }
 
     private void moveCar(final Car car, final CarMoveBehavior carMoveBehavior) {
-        if (carMoveBehavior.moveBehavior()) {
-            car.moveForward();
-        }
+            car.moveForward(carMoveBehavior);
     }
 
     public List<Car> doMaxCar(final int max) {

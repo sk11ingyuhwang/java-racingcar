@@ -1,5 +1,8 @@
 package racingcar.model.domain;
 
+import java.util.List;
+import racingcar.controller.dto.OutputDTO;
+
 public class Racing {
 
     private final Cars cars;
@@ -10,8 +13,8 @@ public class Racing {
         this.carMoveBehavior = carMoveBehavior;
     }
 
-    public void drive() {
-        cars.drive(carMoveBehavior);
+    public List<OutputDTO> drive() {
+        return cars.drive(carMoveBehavior);
     }
 }
 

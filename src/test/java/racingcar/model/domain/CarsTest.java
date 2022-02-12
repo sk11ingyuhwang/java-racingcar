@@ -53,7 +53,7 @@ public class CarsTest {
         cars.cars().stream()
             .map(car -> {
                 if (car.getName().equals("a")) {
-                    car.moveForward();
+                    car.moveForward(new FixMoveBehavior(true));
                 }
                 return true;
             })
